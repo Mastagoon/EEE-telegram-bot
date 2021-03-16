@@ -14,7 +14,7 @@ module.exports = {
         }
         // ctx.telegram.sendChatAction(ctx.chat.id, "upload_file") #TODO fix me
         ctx.telegram.sendDocument(ctx.message.chat.id, {
-            source: data,
+            source: `${__dirname}/../references/${ref.file}`,
             filename: `${__dirname}/../references/${ref.file}`
         })
     }
