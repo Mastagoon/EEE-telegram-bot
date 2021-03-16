@@ -17,9 +17,9 @@ bot.launch()
 
 //we're gonna use the text event instead of bot.command. to support arabic commands.
 bot.on(`text`, ctx => {
-    console.log(ctx.message)
+    // console.log(ctx.message)
     const args = ctx.message.text.slice(prefix.length).split(/ +/)
-    console.log(args)
+    // console.log(args)
     const command = args.shift().toLowerCase()
     if(!commands.find(c => c.name === command)) return
     try {
