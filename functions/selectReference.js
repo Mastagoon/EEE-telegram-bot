@@ -9,7 +9,7 @@ module.exports = async (ctx, type, data) => {
         ref = refs.find(r => r.id == data)
         if(!ref) return ctx.reply("لقد حدث خطأ ما...")  // should never happen
         let menu = ref.menu?.split("|")
-        if(menu.length) {
+        if(ref.menu) {
             let keys = []
             menu.forEach((item, i) => {
                 keys.push(Key.callback(item, `menu:${data}_${i}`))
