@@ -7,3 +7,4 @@
 * Search old lectures by subject
 * Integration with the faculty's system
 * Logging
+* Seeding
