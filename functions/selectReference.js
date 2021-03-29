@@ -2,7 +2,6 @@ const refs = require("../references/index.json")
 const { Keyboard, Key } = require("telegram-keyboard")
 
 module.exports = async (ctx, type, data) => {
-    ctx.deleteMessage()
     let index = 0
     let ref = {}
     const message = ctx.update.callback_query.message
@@ -15,7 +14,8 @@ module.exports = async (ctx, type, data) => {
             menu.forEach((item, i) => {
                 keys.push(Key.callback(item, `menu:${data}_${i}`))
             })
-            const keyboard = await Keyboard.make(keys, { wrap: (row, i, button) => i%2 })
+            const keyboard = Keyboard.make(keys, { wrap: (row, i, button) => i%2 })
+            ctx.deleteMessage()
             return ctx.reply("يرجى الاختيار من القائمة", keyboard.inline()) // #TODO use editmessagereplymarkup instead.
             // return await ctx.telegram.editMessageReplyMarkup(message.chat.id, message.message_id, '', keyboard.inline())
         }
@@ -28,6 +28,7 @@ module.exports = async (ctx, type, data) => {
         if(!index) return ctx.reply("لقد حدث خطأ ما...")
         // send file
     }
+    ctx.deleteMessage()
     return ctx.telegram.sendDocument(message.chat.id, {
         source: `${__dirname}/../references/${ref.files.split("|")[index]}`,
         filename: `${__dirname}/../references/${ref.files.split("|")[index]}`
