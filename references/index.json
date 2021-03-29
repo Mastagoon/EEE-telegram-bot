@@ -1,10 +1,50 @@
 [
     {
+        "id":1,
         "name":"رسم كهربائي",
-        "file":"elc133.pdf"
+        "menu":"المرجع الموصوف في الدليل|المرجع السعودي",
+        "description":"",
+        "teacher":"أ. صلاح",
+        "files":"elc133.pdf|wiring.pdf"
     },
     {
+        "id":2,
         "name":"الات كهربائية",
-        "file":"machine.pdf"
+        "menu":"المرجع الرئيسي|مرجع المسائل",
+        "description":"",
+        "teacher":"أ. حسام القمر",
+        "file":"machine.pdf|machine_probs.pdf"
+    },
+    {
+        "id":3,
+        "name":"الاشارات الرقمية",
+        "menu":"المرجع|المقدّمة|المحاضرة الأولى|المحاضرة الثانية|المحاضرة الثالثة|المحاضرة الرابعة|المحاضرة الخامسة|المحاضرة السادسة",
+        "description":"",
+        "teacher":"أ. فوّاز",
+        "files":"signals.pdf|Module-0.pdf|Module-1.pdf|Module-2.pdf|Module-3.pdf|Module-4.pdf|Module-5.pdf|Module-6.pdf"
+    },
+    {
+        "id":4,
+        "name":"المعالجات الدقيقة",
+        "menu":"",
+        "description":"",
+        "teacher":"أ. علي عبدالله",
+        "files":"micro.pdf"
+    },
+    {
+        "id":5,
+        "name":"نظرية تحكم",
+        "menu":"المرجع الرئيسي|حلول المرجع",
+        "description":"",
+        "teacher":"عمر بدوي",
+        "files":"control.pdf|control_sol.pdf"
+    },
+    {
+        "id":6,
+        "name":"طرق عددية",
+        "menu":"",
+        "description":"",
+        "teacher":"د.فارس",
+        "files":"math.pdf"
     }
 ]

@@ -14,6 +14,6 @@ module.exports = {
             res += `\n\n`
         }
         res += '.'
-        return ctx.reply(res)
+        return ctx.reply(res, Markup.forceReply().extra())
     }
 }

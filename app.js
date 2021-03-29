@@ -1,5 +1,6 @@
 const { Telegraf } = require('telegraf')
 const fs = require("fs")
+const selectReference = require('./functions/selectReference')
 require("dotenv").config()
 const prefix = process.env.PREFIX
 
@@ -17,17 +18,21 @@ bot.launch()
 
 //we're gonna use the text event instead of bot.command. to support arabic commands.
 bot.on(`text`, ctx => {
-    // console.log(ctx.message)
     const args = ctx.message.text.slice(prefix.length).split(/ +/)
-    // console.log(args)
     const command = args.shift().toLowerCase()
     if(!commands.find(c => c.name === command)) return
     try {
-        commands.find(c => c.name === command).command.execute(ctx, args)
+        commands.find(c => c.name === command).command.execute(ctx, args, bot)
     } catch(err) {
         ctx.reply(`لقد حدث خطأ ما...@`)
         console.log(err.message)
     }
+})
+
+bot.on('callback_query', (ctx) => {
+    const [actionType, actionData] = ctx.callbackQuery.data.split(':')
+    selectReference(ctx, actionType, actionData)
+    return ctx.answerCbQuery()
 })
 
 // Enable graceful stop
